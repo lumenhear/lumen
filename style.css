@@ -1,80 +1,109 @@
-// Corrected JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-  // Mobile Menu Toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const navList = document.getElementById('nav-list');
+/* ===== Global Styles ===== */
+:root {
+  --primary: #2563eb;       /* Blue */
+  --primary-dark: #1d4ed8;
+  --secondary: #f59e0b;    /* Amber */
+  --secondary-dark: #d97706;
+  --dark: #1e293b;         /* Dark slate */
+  --light: #f8fafc;        /* Light gray */
+  --accent: #7c3aed;       /* Purple */
+  --success: #10b981;      /* Emerald */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+/* Focus styles for accessibility */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip link styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Rest of your CSS with improved responsive units and modern layout techniques */
+/* ... */
+
+/* Improved responsive styles */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
   
-  function handleMenuToggle() {
-    if (!menuToggle || !navList) return;
-    
-    navList.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-    menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+  .nav-list {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    transition: left 0.3s ease;
   }
 
-  if (menuToggle) {
-    menuToggle.addEventListener('click', handleMenuToggle);
+  .nav-list.active {
+    left: 0;
   }
 
-  // Cleanup function for event listeners
-  function cleanup() {
-    if (menuToggle) {
-      menuToggle.removeEventListener('click', handleMenuToggle);
-    }
-    // Remove other event listeners as needed
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  // Services Tab Switching with error handling
-  try {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const serviceCategories = document.querySelectorAll('.service-category');
-    
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        serviceCategories.forEach(cat => cat.classList.remove('active'));
-        
-        this.classList.add('active');
-        const tabId = this.getAttribute('data-tab');
-        if (tabId) {
-          const targetCategory = document.getElementById(tabId);
-          if (targetCategory) targetCategory.classList.add('active');
-        }
-      });
-    });
-  } catch (error) {
-    console.error('Tab switching error:', error);
+  /* Improved touch targets */
+  .btn, .nav-link, .tab-btn {
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
+}
 
-  // Improved stats animation with requestAnimationFrame
-  function animateStats() {
-    const statNumbers = document.querySelectorAll('.stat-number');
-    if (!statNumbers.length) return;
-
-    statNumbers.forEach(stat => {
-      const target = parseInt(stat.getAttribute('data-count')) || 0;
-      const duration = 2000;
-      const startTime = performance.now();
-      
-      function updateCount(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const value = Math.floor(progress * target);
-        
-        stat.textContent = value;
-        
-        if (progress < 1) {
-          requestAnimationFrame(updateCount);
-        }
-      }
-      
-      requestAnimationFrame(updateCount);
-    });
+/* Reduced motion alternative */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
-  // Rest of the JavaScript with improved performance
-  // ...
-
-  // Cleanup on window unload
-  window.addEventListener('beforeunload', cleanup);
-});
+}
