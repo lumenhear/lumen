@@ -1,0 +1,80 @@
+// Corrected JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navList = document.getElementById('nav-list');
+  
+  function handleMenuToggle() {
+    if (!menuToggle || !navList) return;
+    
+    navList.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', handleMenuToggle);
+  }
+
+  // Cleanup function for event listeners
+  function cleanup() {
+    if (menuToggle) {
+      menuToggle.removeEventListener('click', handleMenuToggle);
+    }
+    // Remove other event listeners as needed
+  }
+
+  // Services Tab Switching with error handling
+  try {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const serviceCategories = document.querySelectorAll('.service-category');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        serviceCategories.forEach(cat => cat.classList.remove('active'));
+        
+        this.classList.add('active');
+        const tabId = this.getAttribute('data-tab');
+        if (tabId) {
+          const targetCategory = document.getElementById(tabId);
+          if (targetCategory) targetCategory.classList.add('active');
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Tab switching error:', error);
+  }
+
+  // Improved stats animation with requestAnimationFrame
+  function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (!statNumbers.length) return;
+
+    statNumbers.forEach(stat => {
+      const target = parseInt(stat.getAttribute('data-count')) || 0;
+      const duration = 2000;
+      const startTime = performance.now();
+      
+      function updateCount(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(progress * target);
+        
+        stat.textContent = value;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        }
+      }
+      
+      requestAnimationFrame(updateCount);
+    });
+  }
+
+  // Rest of the JavaScript with improved performance
+  // ...
+
+  // Cleanup on window unload
+  window.addEventListener('beforeunload', cleanup);
+});
