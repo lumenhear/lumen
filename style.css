@@ -1,109 +1,74 @@
-/* ===== Global Styles ===== */
-:root {
-  --primary: #2563eb;       /* Blue */
-  --primary-dark: #1d4ed8;
-  --secondary: #f59e0b;    /* Amber */
-  --secondary-dark: #d97706;
-  --dark: #1e293b;         /* Dark slate */
-  --light: #f8fafc;        /* Light gray */
-  --accent: #7c3aed;       /* Purple */
-  --success: #10b981;      /* Emerald */
+// Navbar scroll state
+const header = document.querySelector('.navbar');
+const backToTop = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 10);
+  backToTop.classList.toggle('visible', y > 500);
+});
+
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const menu = document.querySelector('#nav-menu');
+if (toggle && menu){
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('show');
+  });
+  // close menu when clicking a link
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('show');
+    toggle.setAttribute('aria-expanded','false');
+  }));
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// Smooth reveal animations using IntersectionObserver
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+}, {threshold: 0.12});
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Testimonials slider
+const slides = Array.from(document.querySelectorAll('.slide'));
+let idx = 0;
+function show(i){
+  slides.forEach((s, n) => s.classList.toggle('active', n === i));
 }
+show(idx);
+const next = document.querySelector('.slide-btn.next');
+const prev = document.querySelector('.slide-btn.prev');
+next && next.addEventListener('click', () => { idx = (idx + 1) % slides.length; show(idx); });
+prev && prev.addEventListener('click', () => { idx = (idx - 1 + slides.length) % slides.length; show(idx); });
+setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, 6000);
 
-html {
-  scroll-behavior: smooth;
-}
+// FAQ accordion
+const accordions = document.querySelectorAll('.accordion-header');
+accordions.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    const panel = btn.nextElementSibling;
+    if (!expanded){
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    } else {
+      panel.style.maxHeight = 0;
+    }
+  });
+});
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
+// Footer year
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark);
-  line-height: 1.6;
-  background-color: #fff;
-  overflow-x: hidden;
-}
-
-/* Focus styles for accessibility */
-:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Skip link styles */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary);
-  color: white;
-  padding: 8px;
-  z-index: 100;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* Rest of your CSS with improved responsive units and modern layout techniques */
-/* ... */
-
-/* Improved responsive styles */
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 3rem 0;
-  }
-  
-  .nav-list {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: white;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    transition: left 0.3s ease;
-  }
-
-  .nav-list.active {
-    left: 0;
-  }
-
-  .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Improved touch targets */
-  .btn, .nav-link, .tab-btn {
-    min-height: 48px;
-    min-width: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* Reduced motion alternative */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+// Optional: enhance FormSubmit UX by preventing double submits
+const form = document.querySelector('form[action^="https://formsubmit.co/"]');
+if (form){
+  form.addEventListener('submit', () => {
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn){ btn.disabled = true; btn.textContent = 'Sending...'; }
+  });
+    }
