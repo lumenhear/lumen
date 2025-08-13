@@ -1,214 +1,74 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle with proper ARIA management
-  const menuToggle = document.getElementById('menu-toggle');
-  const navList = document.getElementById('nav-list');
-  
-  const toggleMenu = () => {
-    const isExpanded = navList.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-    menuToggle.setAttribute('aria-expanded', isExpanded);
-    
-    // Toggle body scroll when menu is open
-    document.body.style.overflow = isExpanded ? 'hidden' : '';
-  };
-  
-  if (menuToggle && navList) {
-    menuToggle.addEventListener('click', toggleMenu);
-    
-    // Close menu when clicking on nav links
-    document.querySelectorAll('.nav-list a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navList.classList.contains('active')) {
-          toggleMenu();
-        }
-      });
+// Enhanced script.js with more interactive elements
+document.addEventListener('DOMContentLoaded', function() {
+  // Set current year in footer
+  const year = new Date().getFullYear();
+  document.getElementById('year').textContent = year;
+
+  // WhatsApp button functionality
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', function() {
+      const message = encodeURIComponent("Hello LUMEN Clinic, I want to book an appointment");
+      window.open(`https://wa.me/919350158754?text=${message}`, '_blank');
     });
   }
 
-  // Services Tab Switching with keyboard support
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const serviceCategories = document.querySelectorAll('.service-category');
-  
-  if (tabBtns.length && serviceCategories.length) {
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Remove active class from all buttons and categories
-        tabBtns.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        serviceCategories.forEach(cat => cat.classList.remove('active'));
-        
-        // Add active class to clicked button and corresponding category
-        this.classList.add('active');
-        this.setAttribute('aria-selected', 'true');
-        const tabId = this.getAttribute('data-tab');
-        if (tabId) {
-          const targetCategory = document.getElementById(tabId);
-          if (targetCategory) targetCategory.classList.add('active');
-        }
-      });
-      
-      // Keyboard navigation support
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          btn.click();
-        }
-      });
+  // Navbar scroll effect
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
   }
 
-  // Animate Stats Counting with IntersectionObserver
-  const animateStats = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        statNumbers.forEach(stat => {
-          const target = parseInt(stat.getAttribute('data-count')) || 0;
-          const duration = 2000;
-          const increment = target / (duration / 16);
-          let current = 0;
-          
-          const counter = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              clearInterval(counter);
-              stat.textContent = target;
-            } else {
-              stat.textContent = Math.floor(current);
-            }
-          }, 16);
-        });
-        
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const statsObserver = new IntersectionObserver(animateStats, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  const statsContainer = document.querySelector('.stats-container');
-  if (statsContainer) statsObserver.observe(statsContainer);
-
-  // FAQ Accordion with improved accessibility
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  
-  faqQuestions.forEach(question => {
-    const answerId = question.getAttribute('aria-controls');
-    const answer = document.getElementById(answerId);
-    
-    if (!answer) return;
-    
-    question.addEventListener('click', () => {
-      const isExpanded = question.getAttribute('aria-expanded') === 'true';
-      question.setAttribute('aria-expanded', !isExpanded);
-      answer.setAttribute('aria-hidden', isExpanded);
-      
-      // Toggle active class on parent
-      question.parentElement.classList.toggle('active');
-    });
-    
-    // Keyboard support
-    question.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        question.click();
-      }
-    });
-  });
-
-  // Smooth scrolling for navigation links
+  // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
       
-      if (targetId !== '#') {
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth'
-          });
-          
-          // Close mobile menu if open
-          if (navList && navList.classList.contains('active')) {
-            toggleMenu();
-          }
-        }
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
       }
     });
   });
 
-  // Form Submission with error handling
-  const appointmentForm = document.getElementById('appointment-form');
-  if (appointmentForm) {
-    appointmentForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formMessages = document.getElementById('form-messages');
-      
-      try {
-        // In a real implementation, you would use fetch() here
-        // For now, we'll simulate a successful submission
-        if (formMessages) {
-          formMessages.innerHTML = `
-            <div class="success-message" role="alert">
-              Thank you! Your appointment request has been sent. We will contact you shortly.
-            </div>
-          `;
-        }
-        
-        this.reset();
-        
-        setTimeout(() => {
-          if (formMessages) {
-            formMessages.innerHTML = '';
-          }
-        }, 5000);
-      } catch (error) {
-        if (formMessages) {
-          formMessages.innerHTML = `
-            <div class="error-message" role="alert">
-              There was an error submitting your form. Please try again or call us directly.
-            </div>
-          `;
-        }
-      }
-    });
-  }
-
-  // Back to Top Button
-  const backToTopButton = document.querySelector('.back-to-top');
-  if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    });
+  // Animation on scroll
+  const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.animate');
     
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (elementPosition < windowHeight - 100) {
+        element.classList.add('animated');
+      }
     });
-  }
+  };
 
-  // Preloader
-  window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-      preloader.style.opacity = '0';
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 500);
-    }
+  // Initialize animations
+  window.addEventListener('scroll', animateOnScroll);
+  animateOnScroll(); // Run once on page load
+
+  // Form submission handling
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+      const submitBtn = this.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+      }
+    });
   });
 });
