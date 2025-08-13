@@ -1,155 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMEN Speech and Hearing Care - Hisar, Haryana | Audiology & Speech Therapy</title>
-    <meta name="description" content="LUMEN Speech and Hearing Care in Hisar, Haryana offers advanced audiology and speech therapy services. Expert care for hearing aids, speech disorders, and pediatric audiology.">
-    <meta name="keywords" content="audiology, speech therapy, hearing aids, Hisar, Haryana, speech disorders, hearing test, BERA, OAE, audiometry">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="js/script.js" as="script">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "LUMEN Speech and Hearing Care",
-      "description": "Advanced diagnostic and therapeutic services in audiology and speech-language pathology in Hisar, Haryana",
-      "url": "https://lumenhear.github.io/speechcare/",
-      "telephone": "+91-9350158754",
-      "email": "drdk2025@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Hisar",
-        "addressRegion": "Haryana",
-        "addressCountry": "IN"
-      },
-      "medicalSpecialty": ["Audiology", "Speech-Language Pathology"],
-      "openingHours": "Mo-Sa 09:00-18:00"
-    }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LUMEN Speech and Hearing Care – Empowering Better Hearing and Communication. Premium hearing & speech therapy services, hearing aids, AVT, and more." />
+  <meta name="keywords" content="Hearing, Speech Therapy, Audiology, Hearing Aids, AVT, Cochlear Implant, PTA, OAE, BERA, Impedance Audiometry" />
+  <meta name="author" content="LUMEN Speech & Hearing" />
+  <title>LUMEN Speech & Hearing Care</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-omitted" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Skip to Content Link (Accessibility) -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="nav-brand">
-                <img src="assets/logo.png" alt="LUMEN Speech and Hearing Care Logo" class="logo-img" width="50" height="50" loading="lazy">
-                <div class="brand-text">
-                    <span class="brand-name">LUMEN</span>
-                    <span class="tagline">Speech & Hearing Care</span>
-                </div>
-            </div>
-            <nav class="nav">
-                <ul class="nav-list" id="nav-list">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#team" class="nav-link">Team</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="tel:+919350158754" class="nav-cta">Call Now</a></li>
-                </ul>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-list">
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                </button>
-            </nav>
-        </div>
-    </header>
+  <!-- ====== NAVBAR ====== -->
+  <header class="navbar" role="banner" aria-label="Main Navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="LUMEN home">
+        <span class="brand-logo" aria-hidden="true">👂</span>
+        <span class="brand-text">LUMEN <small>Speech & Hearing Care</small></span>
+      </a>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero" aria-labelledby="hero-heading">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 id="hero-heading">Helping You <span class="highlight">Hear</span> and <span class="highlight">Speak</span> with Confidence</h1>
-                    <p class="hero-subtitle">Advanced diagnostic and therapeutic services in audiology and speech-language pathology in Hisar, Haryana</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary pulse-animation">
-                            <i class="fas fa-calendar-check" aria-hidden="true"></i> Book Appointment
-                        </a>
-                        <a href="tel:+919350158754" class="btn btn-secondary">
-                            <i class="fas fa-phone-alt" aria-hidden="true"></i> Call Now
-                        </a>
-                    </div>
-                    <div class="hero-features">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-md" aria-hidden="true"></i>
-                            </div>
-                            <span>Expert Audiologist</span>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-microscope" aria-hidden="true"></i>
-                            </div>
-                            <span>Advanced Equipment</span>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-heart" aria-hidden="true"></i>
-                            </div>
-                            <span>Compassionate Care</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-scroll-indicator">
-                <a href="#about" aria-label="Scroll down">
-                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- Rest of your HTML remains the same with similar accessibility improvements -->
-        <!-- ... -->
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <!-- Footer content with accessibility improvements -->
-        <!-- ... -->
-    </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#home" class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script src="js/script.js" defer></script>
-    
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">
-                <img src="assets/logo.png" alt="LUMEN Loading" width="80" height="80" loading="eager">
-            </div>
-            <div class="preloader-spinner">
-                <div class="spinner"></div>
-            </div>
-        </div>
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#hearing-aids">Hearing Aids</a></li>
+          <li><a href="#speech">Speech & Disorders</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact" class="btn btn-primary">Book Appointment</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section id="home" class="hero" aria-label="Hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="headline reveal">Empowering Better Hearing & Communication</h1>
+      <p class="subheadline reveal">Premium audiology & speech-language services you can trust.</p>
+      <div class="hero-ctas reveal">
+        <a href="#contact" class="btn btn-primary">Book Appointment</a>
+        <a href="#services" class="btn btn-ghost">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TRUST STRIP ====== -->
+  <section class="trust container" aria-label="Trust Badges">
+    <ul class="trust-list">
+      <li class="reveal"><i class="fa-solid fa-shield-heart"></i> Patient-first care</li>
+      <li class="reveal"><i class="fa-solid fa-award"></i> Certified audiologists</li>
+      <li class="reveal"><i class="fa-solid fa-bolt"></i> Same-day appointments</li>
+      <li class="reveal"><i class="fa-solid fa-ear-listen"></i> Advanced diagnostics</li>
+    </ul>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section id="about" class="about section" aria-labelledby="about-title">
+    <div class="container grid-2">
+      <div class="about-text">
+        <h2 id="about-title" class="section-title reveal">About LUMEN</h2>
+        <p class="lead reveal">At LUMEN Speech & Hearing Care, we provide comprehensive hearing and communication solutions with compassion, precision, and proven outcomes.</p>
+        <ul class="checklist reveal">
+          <li><i class="fa-regular fa-circle-check"></i> Personalized treatment plans</li>
+          <li><i class="fa-regular fa-circle-check"></i> Evidence-based therapy</li>
+          <li><i class="fa-regular fa-circle-check"></i> Transparent pricing & guidance</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary reveal">Schedule a Visit</a>
+      </div>
+      <div class="about-media reveal">
+        <img src="https://images.unsplash.com/photo-1554774853-b415df9eeb92?q=80&w=1600&auto=format&fit=crop" alt="Clinic environment" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SERVICES ====== -->
+  <section id="services" class="services section" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" class="section-title reveal">Services</h2>
+      <p class="section-subtitle reveal">Comprehensive diagnostics and therapy for all ages.</p>
+      <div class="card-grid">
+        <article class="card reveal"><i class="fa-solid fa-wave-square"></i><h3>Pure Tone Audiometry (PTA)</h3><p>Accurate threshold testing for hearing sensitivity and profile mapping.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-sliders"></i><h3>Impedance Audiometry</h3><p>Middle ear assessment including tympanometry and reflexes.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-atom"></i><h3>OAE</h3><p>Outer hair cell function screening for newborns and adults.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-brain"></i><h3>BERA</h3><p>Brainstem auditory evoked potentials for neural pathway assessment.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-headset"></i><h3>Hearing Aid Fitting & Service</h3><p>Brand-agnostic fitting, verification, and ongoing support.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-language"></i><h3>Speech Therapy</h3><p>Articulation, fluency, voice, language therapy tailored to goals.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-children"></i><h3>AVT</h3><p>Auditory-Verbal Therapy for children with HAs or CIs.</p></article>
+        <article class="card reveal"><i class="fa-solid fa-ear-deaf"></i><h3>Cochlear Implant Rehab</h3><p>MAPping coordination and intensive listening/language training.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== HEARING AIDS ====== -->
+  <section id="hearing-aids" class="hearing section" aria-labelledby="hearing-title">
+    <div class="container">
+      <h2 id="hearing-title" class="section-title reveal">Hearing Aids</h2>
+      <p class="section-subtitle reveal">Compare styles, features, and pricing tiers.</p>
+
+      <div class="compare table-responsive reveal" role="table" aria-label="Hearing aid comparison">
+        <div class="t-row t-head" role="row">
+          <div class="t-cell" role="columnheader">Model</div>
+          <div class="t-cell" role="columnheader">Style</div>
+          <div class="t-cell" role="columnheader">Key Features</div>
+          <div class="t-cell" role="columnheader">Indicative Price</div>
+          <div class="t-cell" role="columnheader"></div>
+        </div>
+        <div class="t-row" role="row">
+          <div class="t-cell" role="cell">Premium X</div>
+          <div class="t-cell" role="cell">RIC</div>
+          <div class="t-cell" role="cell">Rechargeable, Bluetooth, AI noise reduction</div>
+          <div class="t-cell" role="cell">₹1,50,000–₹2,50,000</div>
+          <div class="t-cell" role="cell"><a href="#contact" class="btn btn-chip">Enquire</a></div>
+        </div>
+        <div class="t-row" role="row">
+          <div class="t-cell" role="cell">Comfort S</div>
+          <div class="t-cell" role="cell">BTE</div>
+          <div class="t-cell" role="cell">Directional mics, feedback control</div>
+          <div class="t-cell" role="cell">₹60,000–₹1,20,000</div>
+          <div class="t-cell" role="cell"><a href="#contact" class="btn btn-chip">Enquire</a></div>
+        </div>
+        <div class="t-row" role="row">
+          <div class="t-cell" role="cell">Essential I</div>
+          <div class="t-cell" role="cell">ITE</div>
+          <div class="t-cell" role="cell">Custom fit, basic noise reduction</div>
+          <div class="t-cell" role="cell">₹30,000–₹60,000</div>
+          <div class="t-cell" role="cell"><a href="#contact" class="btn btn-chip">Enquire</a></div>
+        </div>
+      </div>
+
+      <div class="pill-cta reveal">
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Get Fitted</a>
+        <a href="#faq" class="btn btn-ghost">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SPEECH & DISORDERS ====== -->
+  <section id="speech" class="speech section" aria-labelledby="speech-title">
+    <div class="container">
+      <h2 id="speech-title" class="section-title reveal">Speech Therapy & Disorders</h2>
+      <div class="grid-2">
+        <div class="reveal">
+          <h3>What we help with</h3>
+          <ul class="bullets">
+            <li>Articulation & phonological disorders</li>
+            <li>Language delay & developmental language disorder</li>
+            <li>Fluency (stuttering) & cluttering</li>
+            <li>Voice & resonance disorders</li>
+            <li>AVT for CI/HA users</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Our approach</h3>
+          <ol class="steps">
+            <li>Comprehensive assessment</li>
+            <li>Goal setting with family involvement</li>
+            <li>Customized therapy plan</li>
+            <li>Home program and progress tracking</li>
+            <li>Review & refine</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="testimonials section" aria-labelledby="testimonials-title">
+    <div class="container">
+      <h2 id="testimonials-title" class="section-title reveal">What Patients Say</h2>
+      <div class="slider" role="region" aria-label="Testimonials slider">
+        <button class="slide-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="slides">
+          <figure class="slide active">
+            <blockquote>“Warm, knowledgeable, and super efficient. My fitting was perfect!”</blockquote>
+            <figcaption>— Riya S.</figcaption>
+          </figure>
+          <figure class="slide">
+            <blockquote>“We started AVT here and saw progress within weeks.”</blockquote>
+            <figcaption>— Mehul & Aanya</figcaption>
+          </figure>
+          <figure class="slide">
+            <blockquote>“They explained everything clearly and helped us choose the right device.”</blockquote>
+            <figcaption>— Dr. Gupta</figcaption>
+          </figure>
+        </div>
+        <button class="slide-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section id="faq" class="faq section" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title" class="section-title reveal">Frequently Asked Questions</h2>
+      <div class="accordion" role="tablist">
+        <div class="item reveal">
+          <button class="accordion-header" role="tab" aria-expanded="false">How do I book an appointment?</button>
+          <div class="accordion-panel" role="region"><p>You can call us, WhatsApp, or use the booking form below. We’ll confirm within 24 hours.</p></div>
+        </div>
+        <div class="item reveal">
+          <button class="accordion-header" role="tab" aria-expanded="false">Do you offer pediatric services?</button>
+          <div class="accordion-panel" role="region"><p>Yes, we work with infants, children, and adults for diagnostics and therapy.</p></div>
+        </div>
+        <div class="item reveal">
+          <button class="accordion-header" role="tab" aria-expanded="false">Which hearing aid brands do you fit?</button>
+          <div class="accordion-panel" role="region"><p>We are brand-agnostic and recommend based on your hearing profile and lifestyle.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BLOG ====== -->
+  <section id="blog" class="blog section" aria-labelledby="blog-title">
+    <div class="container">
+      <h2 id="blog-title" class="section-title reveal">From the Blog</h2>
+      <div class="blog-grid">
+        <article class="blog-card reveal">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a077451f?q=80&w=1600&auto=format&fit=crop" alt="Hearing protection"/>
+          <div class="blog-body">
+            <h3>Protect Your Ears in Noisy Environments</h3>
+            <p>Simple habits to prevent noise-induced hearing loss.</p>
+            <a href="#" class="link">Read more</a>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?q=80&w=1600&auto=format&fit=crop" alt="Child speech therapy"/>
+          <div class="blog-body">
+            <h3>Speech Milestones: What to Watch For</h3>
+            <p>Know the early signs and when to seek assessment.</p>
+            <a href="#" class="link">Read more</a>
+          </div>
+        </article>
+        <article class="blog-card reveal">
+          <img src="https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?q=80&w=1600&auto=format&fit=crop" alt="Hearing aids on a table"/>
+          <div class="blog-body">
+            <h3>Choosing Your First Hearing Aid</h3>
+            <p>Features that matter and how to compare models.</p>
+            <a href="#" class="link">Read more</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact" class="contact section" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title" class="section-title reveal">Book an Appointment</h2>
+      <div class="grid-2">
+        <form class="form reveal" action="https://formsubmit.co/YOUREMAIL@EXAMPLE.COM" method="POST">
+          <!-- Replace YOUREMAIL@EXAMPLE.COM with your email. Learn more at formsubmit.co -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Appointment Request – LUMEN">
+          <input type="hidden" name="_template" value="table">
+
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="Your phone number" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>PTA</option>
+            <option>Impedance Audiometry</option>
+            <option>OAE</option>
+            <option>BERA</option>
+            <option>Hearing Aid Fitting & Service</option>
+            <option>Speech Therapy</option>
+            <option>AVT</option>
+            <option>Cochlear Implant Rehab</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us briefly how we can help"></textarea>
+
+          <button class="btn btn-primary" type="submit">Send Request</button>
+          <p class="form-note">By submitting, you agree to our privacy policy.</p>
+        </form>
+
+        <div class="contact-info reveal">
+          <div class="info-block">
+            <h3>Contact</h3>
+            <p><i class="fa-solid fa-phone"></i> +91 93501 58754</p>
+            <p><i class="fa-brands fa-whatsapp"></i> WhatsApp available</p>
+            <p><i class="fa-solid fa-envelope"></i> info@lumenhearingcare.com</p>
+          </div>
+          <div class="info-block">
+            <h3>Locations</h3>
+            <p>Hisar • Hansi • Bhiwani</p>
+          </div>
+          <div class="map-card">
+            <iframe title="Map to LUMEN" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hisar%20Speech%20and%20Hearing&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="foot-brand">
+        <span class="brand-logo">👂</span>
+        <span>LUMEN Speech & Hearing Care</span>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hearing-aids">Hearing Aids</a></li>
+        <li><a href="#speech">Speech</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="copy">© <span id="year"></span> LUMEN Speech & Hearing Care. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+  <script src="script.js"></script>
 </body>
 </html>
